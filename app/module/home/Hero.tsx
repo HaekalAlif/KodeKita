@@ -9,7 +9,7 @@ const whatsappUrl =
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative flex items-center min-h-[100dvh] bg-white overflow-hidden pt-32 pb-12">
+    <section id="hero" className="relative flex items-center min-h-[100dvh] bg-white overflow-hidden pt-32 pb-12">
       {/* Clean Background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-blue-50/30"></div>

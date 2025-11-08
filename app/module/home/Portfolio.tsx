@@ -201,7 +201,7 @@ const Portfolio: React.FC = () => {
   return (
     <>
       <section
-        id="portofolio"
+        id="portfolio"
         className="relative py-10 bg-white overflow-hidden"
       >
         {/* Background */}

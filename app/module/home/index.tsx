@@ -11,6 +11,8 @@ const Portfolio = dynamic(() => import("./Portfolio"), { ssr: false });
 
 const Testimonials = dynamic(() => import("./Testimonials"), { ssr: false });
 
+const ContactFaq = dynamic(() => import("./ContactFaq"), { ssr: false });
+
 const HomeModule: React.FC = () => {
   return (
     <Layout>
@@ -18,6 +20,7 @@ const HomeModule: React.FC = () => {
       <Services />
       <Portfolio />
       <Testimonials />
+      <ContactFaq />
     </Layout>
   );
 };
