@@ -44,7 +44,7 @@ const services = [
 
 const Services: React.FC = () => {
   return (
-    <section id="layanan" className="relative py-20 bg-white overflow-hidden">
+    <section id="layanan" className="relative py-10 bg-white overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-blue-50/30"></div>
