@@ -178,7 +178,7 @@ const Hero: React.FC = () => {
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="text-xs sm:text-sm font-bold text-gray-900 truncate">
-                      Website Portfolio
+                      Website
                     </div>
                     <div className="text-[10px] sm:text-xs text-[#ed1c23] font-bold">
                       Mulai Rp 150K
