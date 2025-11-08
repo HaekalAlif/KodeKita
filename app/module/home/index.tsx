@@ -1,11 +1,18 @@
 import React from "react";
+import dynamic from "next/dynamic";
 
-const HomeModule = () => {
+import Layout from "@/app/layouts/Layout";
+
+const Hero = dynamic(() => import("./Hero"), { ssr: false });
+
+const Services = dynamic(() => import("./Services"), { ssr: false });
+
+const HomeModule: React.FC = () => {
   return (
-    <div>
-      <h1>Welcome to KodeKita!</h1>
-      <p>Landing page is under development.</p>
-    </div>
+    <Layout>
+      <Hero />
+      <Services />
+    </Layout>
   );
 };
 
