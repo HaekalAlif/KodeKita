@@ -4,10 +4,10 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
 const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "Layanan", href: "#layanan" },
-  { name: "Portofolio", href: "#portofolio" },
-  { name: "FAQ", href: "#faq" },
+  { name: "Home", href: "#hero" },
+  { name: "Layanan", href: "#services" },
+  { name: "Portofolio", href: "#portfolio" },
+  { name: "FAQ", href: "#contact-faq" },
 ];
 
 const Header: React.FC = () => {
@@ -23,6 +23,24 @@ const Header: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isOpen]);
 
+  const handleSmoothScroll = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    e.preventDefault();
+    const targetId = href.replace("#", "");
+    const element = document.getElementById(targetId);
+
+    if (element) {
+      const offsetTop = element.offsetTop - 100;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth",
+      });
+    }
+    setIsOpen(false);
+  };
+
   return (
     <>
       {/* Fixed Header Wrapper */}
@@ -32,7 +50,13 @@ const Header: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between text-xs sm:text-sm">
             <div className="flex items-center gap-4">
               <span className="flex items-center gap-2">
-                <span>🎓</span>
+                <svg
+                  className="w-4 h-4"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z" />
+                </svg>
                 <span className="hidden sm:inline font-medium">
                   Konsultasi Gratis untuk Mahasiswa
                 </span>
@@ -40,17 +64,25 @@ const Header: React.FC = () => {
             </div>
             <div className="flex items-center gap-4">
               <a
-                href="mailto:kodekita@email.com"
+                href="mailto:kodekita.id@email.com"
                 className="hover:text-gray-200 transition-colors hidden md:flex items-center gap-1.5 font-medium"
               >
-                <span>📧</span>
-                <span>kodekita@email.com</span>
+                <img
+                  src="https://cdn.simpleicons.org/gmail/FFFFFF"
+                  alt="Email"
+                  className="w-4 h-4"
+                />
+                <span>kodekita.id@email.com</span>
               </a>
               <a
                 href="https://wa.me/6287817555827"
                 className="hover:text-gray-200 transition-colors flex items-center gap-1.5 font-medium"
               >
-                <span>📱</span>
+                <img
+                  src="https://cdn.simpleicons.org/whatsapp/FFFFFF"
+                  alt="WhatsApp"
+                  className="w-4 h-4"
+                />
                 <span className="hidden sm:inline">+62 878-1755-5827</span>
                 <span className="sm:hidden">WhatsApp</span>
               </a>
@@ -69,7 +101,11 @@ const Header: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-18">
               {/* Logo Section */}
-              <a href="/" className="flex items-center gap-3 group">
+              <a
+                href="#hero"
+                onClick={(e) => handleSmoothScroll(e, "#hero")}
+                className="flex items-center gap-3 group"
+              >
                 <div className="relative w-12 h-12 bg-white rounded-lg shadow-sm flex items-center justify-center overflow-hidden border border-gray-100">
                   <Image
                     src="/logo.png"
@@ -96,6 +132,7 @@ const Header: React.FC = () => {
                   <a
                     key={link.name}
                     href={link.href}
+                    onClick={(e) => handleSmoothScroll(e, link.href)}
                     className="text-sm font-semibold text-gray-700 hover:text-[#34499e] transition-colors duration-200 relative group py-2"
                   >
                     {link.name}
@@ -112,7 +149,11 @@ const Header: React.FC = () => {
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 px-6 py-3 bg-[#ed1c23] text-white text-sm font-semibold rounded-lg hover:bg-[#d11820] hover:shadow-xl transition-all duration-300 shadow-lg"
                 >
-                  <span>💬</span>
+                  <img
+                    src="https://cdn.simpleicons.org/whatsapp/FFFFFF"
+                    alt="WhatsApp"
+                    className="w-4 h-4"
+                  />
                   <span>Konsultasi Gratis</span>
                 </a>
               </div>
@@ -152,8 +193,8 @@ const Header: React.FC = () => {
                   <a
                     key={link.name}
                     href={link.href}
+                    onClick={(e) => handleSmoothScroll(e, link.href)}
                     className="block px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:text-[#34499e] hover:bg-gray-50 transition-all duration-200"
-                    onClick={() => setIsOpen(false)}
                   >
                     {link.name}
                   </a>
@@ -165,7 +206,11 @@ const Header: React.FC = () => {
                   className="flex items-center justify-center gap-2 px-4 py-3 mt-2 bg-[#ed1c23] text-white rounded-lg font-semibold text-base hover:bg-[#d11820] hover:shadow-lg transition-all duration-300"
                   onClick={() => setIsOpen(false)}
                 >
-                  <span>💬</span>
+                  <img
+                    src="https://cdn.simpleicons.org/whatsapp/FFFFFF"
+                    alt="WhatsApp"
+                    className="w-4 h-4"
+                  />
                   <span>Konsultasi Gratis</span>
                 </a>
               </div>

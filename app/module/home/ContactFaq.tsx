@@ -26,7 +26,7 @@ const faqData: FAQItem[] = [
     id: 3,
     question: "Apakah ada garansi revisi?",
     answer:
-      "Ya! Kami memberikan garansi revisi GRATIS hingga project sesuai dengan kebutuhan Anda. Revisi minor (text, warna, spacing) unlimited. Revisi major (perubahan fitur) disesuaikan dengan kesepakatan awal. Kepuasan Anda adalah prioritas kami.",
+      "Tentu! Kami memberikan garansi revisi hingga 3x untuk memastikan project sesuai dengan kebutuhan Anda. Revisi minor seperti perubahan text, warna, atau spacing bisa unlimited dalam periode 7 hari setelah serah terima. Untuk revisi major yang mengubah fitur atau struktur, akan didiskusikan terlebih dahulu sesuai kesepakatan awal. Kepuasan Anda adalah prioritas kami.",
   },
   {
     id: 4,
@@ -64,7 +64,7 @@ const ContactFaq: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-8"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             <span className="text-[#34499e]">FAQ</span> & Hubungi{" "}

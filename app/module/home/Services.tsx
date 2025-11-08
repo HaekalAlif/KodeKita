@@ -57,7 +57,7 @@ const Services: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-8"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Pilih <span className="text-[#34499e]">Layanan</span> yang Kamu{" "}
@@ -165,7 +165,11 @@ const Services: React.FC = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-8 py-3.5 bg-white text-[#34499e] text-sm font-bold rounded-lg hover:bg-gray-100 hover:shadow-xl transition-all"
               >
-                <span>💬</span>
+                <img
+                  src="https://cdn.simpleicons.org/whatsapp/34499e  "
+                  alt="WhatsApp"
+                  className="w-6 h-6"
+                />
                 <span>Hubungi via WhatsApp</span>
               </a>
             </div>

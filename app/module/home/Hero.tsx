@@ -8,8 +8,28 @@ const whatsappUrl =
   "https://wa.me/6287817555827?text=Halo%20KodeKita%2C%20saya%20ingin%20konsultasi%20tentang%20pembuatan%20website%20atau%20aplikasi.";
 
 const Hero: React.FC = () => {
+  const handleSmoothScroll = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    e.preventDefault();
+    const targetId = href.replace("#", "");
+    const element = document.getElementById(targetId);
+
+    if (element) {
+      const offsetTop = element.offsetTop - 100;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
-    <section id="hero" className="relative flex items-center min-h-[100dvh] bg-white overflow-hidden pt-32 pb-12">
+    <section
+      id="hero"
+      className="relative flex items-center min-h-[100dvh] bg-white overflow-hidden pt-32 pb-12"
+    >
       {/* Clean Background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-blue-50/30"></div>
@@ -75,11 +95,16 @@ const Hero: React.FC = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-[#ed1c23] text-white text-sm sm:text-base font-semibold rounded-lg hover:bg-[#d11820] hover:shadow-xl transition-all shadow-lg"
               >
-                <span>💬</span>
+                <img
+                  src="https://cdn.simpleicons.org/whatsapp/FFFFFF"
+                  alt="WhatsApp"
+                  className="w-6 h-6"
+                />
                 <span>Konsultasi Gratis</span>
               </a>
               <a
-                href="#layanan"
+                href="#services"
+                onClick={(e) => handleSmoothScroll(e, "#services")}
                 className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-white border-2 border-[#34499e] text-[#34499e] text-sm sm:text-base font-semibold rounded-lg hover:bg-[#34499e] hover:text-white transition-all shadow-sm"
               >
                 Lihat Layanan
@@ -311,7 +336,7 @@ const Hero: React.FC = () => {
                 transition={{ delay: 0.6, duration: 0.6 }}
                 className="absolute -bottom-4 sm:-bottom-6 -left-2 sm:-left-4 w-44 sm:w-48 bg-white rounded-xl sm:rounded-2xl shadow-xl p-3 sm:p-4 border border-gray-200 z-20"
               >
-                <div className="flex items-center gap-2 sm:gap-3 mb-2   ">
+                <div className="flex items-center gap-2 sm:gap-3 mb-2">
                   <div className="relative w-12 h-12 sm:w-14 sm:h-14 bg-white rounded-lg sm:rounded-xl flex items-center justify-center shadow-lg overflow-hidden">
                     <Image
                       src="/logo.png"

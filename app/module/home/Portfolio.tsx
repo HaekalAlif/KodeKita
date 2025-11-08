@@ -131,7 +131,7 @@ const portfolioData: Portfolio[] = [
       "Content Management System",
       "Responsive Design",
     ],
-    url: "https://emailkomp.com",
+    url: "https://emailkomp.vokasi.uns.ac.id/",
     accent: "red",
   },
   {
@@ -214,7 +214,7 @@ const Portfolio: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            className="text-center mb-6"
           >
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
               <span className="text-[#34499e]">Portfolio</span> Project{" "}
@@ -232,7 +232,7 @@ const Portfolio: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.5 }}
-            className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-12 px-4"
+            className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 px-4"
           >
             {categories.map((category) => (
               <button
