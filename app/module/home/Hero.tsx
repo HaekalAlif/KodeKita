@@ -161,8 +161,20 @@ const Hero: React.FC = () => {
                 className="absolute -top-4 sm:-top-6 right-4 sm:right-8 w-48 sm:w-56 bg-white rounded-xl sm:rounded-2xl shadow-xl p-4 sm:p-5 border border-gray-200 z-20"
               >
                 <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-emerald-500 to-emerald-700 rounded-lg sm:rounded-xl flex items-center justify-center shadow-lg">
-                    <span className="text-xl sm:text-2xl">✅</span>
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-[#34499e] to-[#5b7fd8] rounded-lg sm:rounded-xl flex items-center justify-center shadow-lg">
+                    <svg
+                      className="w-6 h-6 sm:w-7 sm:h-7 text-white"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="text-xs sm:text-sm font-bold text-gray-900 truncate">
@@ -359,15 +371,17 @@ const Hero: React.FC = () => {
                 <div className="flex items-center justify-between">
                   <div className="flex gap-0.5">
                     {[...Array(5)].map((_, i) => (
-                      <motion.span
+                      <motion.svg
                         key={i}
                         initial={{ opacity: 0, scale: 0 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 1.2 + i * 0.1, duration: 0.3 }}
-                        className="text-yellow-500 text-xs sm:text-sm"
+                        className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-yellow-400"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
                       >
-                        ⭐
-                      </motion.span>
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </motion.svg>
                     ))}
                   </div>
                   <span className="text-[10px] sm:text-xs font-bold text-[#34499e]">
