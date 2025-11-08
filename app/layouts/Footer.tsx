@@ -21,12 +21,12 @@ const Footer: React.FC = () => {
     },
     {
       name: "Instagram",
-      href: "https://instagram.com/kodekita.id",
+      href: "https://instagram.com/kodekita.online",
       icon: "https://cdn.simpleicons.org/instagram/E4405F",
     },
     {
       name: "TikTok",
-      href: "https://tiktok.com/@kodekita.id",
+      href: "https://tiktok.com/@kodekita.online",
       icon: "https://cdn.simpleicons.org/tiktok/000000",
     },
   ];

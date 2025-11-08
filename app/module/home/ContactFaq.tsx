@@ -212,7 +212,7 @@ const ContactFaq: React.FC = () => {
 
                 {/* Instagram */}
                 <motion.a
-                  href="https://instagram.com/kodekita.id"
+                  href="https://instagram.com/kodekita.online"
                   target="_blank"
                   rel="noopener noreferrer"
                   initial={{ opacity: 0, y: 20 }}
@@ -236,7 +236,7 @@ const ContactFaq: React.FC = () => {
                     <div className="text-sm font-semibold text-gray-900">
                       Instagram
                     </div>
-                    <div className="text-xs text-gray-500">@kodekita.id</div>
+                    <div className="text-xs text-gray-500">@kodekita.online</div>
                   </div>
                   <svg
                     className="w-4 h-4 text-gray-400 group-hover:text-[#E4405F] group-hover:translate-x-1 transition-all flex-shrink-0"
@@ -255,7 +255,7 @@ const ContactFaq: React.FC = () => {
 
                 {/* TikTok */}
                 <motion.a
-                  href="https://tiktok.com/@kodekita.id"
+                  href="https://tiktok.com/@kodekita.online"
                   target="_blank"
                   rel="noopener noreferrer"
                   initial={{ opacity: 0, y: 20 }}
@@ -279,7 +279,7 @@ const ContactFaq: React.FC = () => {
                     <div className="text-sm font-semibold text-gray-900">
                       TikTok
                     </div>
-                    <div className="text-xs text-gray-500">@kodekita.id</div>
+                    <div className="text-xs text-gray-500">@kodekita.online</div>
                   </div>
                   <svg
                     className="w-4 h-4 text-gray-400 group-hover:text-gray-900 group-hover:translate-x-1 transition-all flex-shrink-0"

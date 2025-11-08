@@ -500,7 +500,7 @@ const Testimonials: React.FC = () => {
             <div className="text-2xl sm:text-3xl font-bold text-[#ed1c23] mb-1">
               100%
             </div>
-            <div className="text-xs sm:text-sm text-gray-600">Satisfaction</div>
+            <div className="text-xs sm:text-sm text-gray-600">Kepuasan</div>
           </div>
         </motion.div>
       </div>
