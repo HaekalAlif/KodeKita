@@ -242,7 +242,7 @@ const Testimonials: React.FC = () => {
                                 />
 
                                 {/* Fallback Placeholder */}
-                                <div className="hidden w-full h-full bg-linear-to-br from-[#34499e]/5 to-[#ed1c23]/5 flex items-center justify-center absolute inset-0">
+                                <div className="w-full h-full bg-linear-to-br from-[#34499e]/5 to-[#ed1c23]/5 flex items-center justify-center absolute inset-0">
                                   <div className="text-center p-1">
                                     <div className="w-6 h-6 bg-[#34499e] rounded-full flex items-center justify-center mx-auto mb-1">
                                       <svg
@@ -343,7 +343,7 @@ const Testimonials: React.FC = () => {
                           />
 
                           {/* Fallback Placeholder */}
-                          <div className="hidden w-full h-full bg-linear-to-br from-[#34499e]/5 to-[#ed1c23]/5 flex items-center justify-center absolute inset-0">
+                          <div className="w-full h-full bg-linear-to-br from-[#34499e]/5 to-[#ed1c23]/5 flex items-center justify-center absolute inset-0">
                             <div className="text-center p-4">
                               <div className="w-12 h-12 bg-[#34499e] rounded-full flex items-center justify-center mx-auto mb-3">
                                 <svg
