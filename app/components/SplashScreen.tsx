@@ -6,18 +6,19 @@ import Image from "next/image";
 
 const SplashScreen: React.FC = () => {
   const [show, setShow] = useState(true);
-  const [phase, setPhase] = useState(0); // 0: logo morph, 1: content reveal
+  const [phase, setPhase] = useState(0);
   const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
-    // Preload logo
+    // Preload logo immediately
     const img = new window.Image();
     img.src = "/logo.png";
     img.onload = () => setImageLoaded(true);
+    img.onerror = () => setImageLoaded(true); // Fallback
 
     const phaseTimer = setTimeout(() => {
       if (imageLoaded) setPhase(1);
-    }, 1600); // Ditambah dari 1400 agar exit animation logo selesai dulu
+    }, 1600);
     
     const exitTimer = setTimeout(() => setShow(false), 5000);
     
@@ -27,9 +28,228 @@ const SplashScreen: React.FC = () => {
     };
   }, [imageLoaded]);
 
+  // Professional Loading Screen
+  if (!imageLoaded) {
+    return (
+      <div className="fixed inset-0 z-9999 flex items-center justify-center bg-white overflow-hidden">
+        {/* Animated Background Orbs */}
+        <motion.div
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ 
+            scale: [0, 1.5, 1.2], 
+            opacity: [0, 0.1, 0.05],
+            x: [-100, 100, -50],
+            y: [100, -100, 50],
+          }}
+          transition={{ 
+            duration: 3, 
+            ease: "easeInOut",
+            repeat: Infinity,
+            repeatType: "reverse"
+          }}
+          className="absolute w-[400px] h-[400px] rounded-full bg-[#34499e] blur-3xl"
+        />
+        <motion.div
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ 
+            scale: [0, 1.3, 1], 
+            opacity: [0, 0.08, 0.04],
+            x: [100, -100, 50],
+            y: [-100, 100, -50],
+          }}
+          transition={{ 
+            duration: 3.5, 
+            ease: "easeInOut",
+            repeat: Infinity,
+            repeatType: "reverse",
+            delay: 0.5
+          }}
+          className="absolute w-[350px] h-[350px] rounded-full bg-[#ed1c23] blur-3xl"
+        />
+
+        {/* Main Loading Animation */}
+        <div className="relative flex flex-col items-center gap-8 z-10">
+          {/* Logo Pulse Animation */}
+          <motion.div
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ 
+              scale: [0, 1.1, 1],
+              opacity: [0, 1, 1]
+            }}
+            transition={{ 
+              duration: 0.8,
+              ease: [0.34, 1.56, 0.64, 1]
+            }}
+            className="relative"
+          >
+            {/* Glow Ring */}
+            <motion.div
+              animate={{ 
+                scale: [1, 1.2, 1],
+                opacity: [0.3, 0.1, 0.3]
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="absolute inset-0 -m-8 rounded-full bg-linear-to-r from-[#34499e] to-[#ed1c23] blur-xl"
+            />
+            
+            {/* Logo Container */}
+            <div className="relative w-24 h-24 sm:w-32 sm:h-32 bg-white rounded-2xl shadow-2xl p-4 sm:p-6 flex items-center justify-center">
+              <motion.div
+                animate={{ 
+                  rotate: [0, 360]
+                }}
+                transition={{
+                  duration: 20,
+                  repeat: Infinity,
+                  ease: "linear"
+                }}
+              >
+                <Image
+                  src="/logo.png"
+                  alt="KodeKita Logo"
+                  width={80}
+                  height={80}
+                  className="w-full h-full object-contain"
+                  priority
+                />
+              </motion.div>
+            </div>
+          </motion.div>
+
+          {/* Spinner Ring */}
+          <div className="relative w-20 h-20 sm:w-24 sm:h-24">
+            {/* Outer Ring */}
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                ease: "linear"
+              }}
+              className="absolute inset-0"
+            >
+              <svg className="w-full h-full" viewBox="0 0 100 100">
+                <circle
+                  cx="50"
+                  cy="50"
+                  r="45"
+                  fill="none"
+                  stroke="url(#gradient1)"
+                  strokeWidth="4"
+                  strokeLinecap="round"
+                  strokeDasharray="70 200"
+                />
+                <defs>
+                  <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#34499e" />
+                    <stop offset="100%" stopColor="#ed1c23" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </motion.div>
+
+            {/* Inner Ring */}
+            <motion.div
+              animate={{ rotate: -360 }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "linear"
+              }}
+              className="absolute inset-3"
+            >
+              <svg className="w-full h-full" viewBox="0 0 100 100">
+                <circle
+                  cx="50"
+                  cy="50"
+                  r="45"
+                  fill="none"
+                  stroke="url(#gradient2)"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeDasharray="50 150"
+                />
+                <defs>
+                  <linearGradient id="gradient2" x1="100%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stopColor="#ed1c23" />
+                    <stop offset="100%" stopColor="#34499e" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </motion.div>
+          </div>
+
+          {/* Loading Text */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="flex flex-col items-center gap-2"
+          >
+            <motion.p
+              animate={{ opacity: [0.5, 1, 0.5] }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="text-sm sm:text-base font-semibold text-gray-700"
+            >
+              Loading KodeKita
+            </motion.p>
+            
+            {/* Dots Animation */}
+            <div className="flex gap-1.5">
+              {[0, 1, 2].map((i) => (
+                <motion.div
+                  key={i}
+                  animate={{
+                    scale: [1, 1.5, 1],
+                    opacity: [0.3, 1, 0.3]
+                  }}
+                  transition={{
+                    duration: 1,
+                    repeat: Infinity,
+                    delay: i * 0.2,
+                    ease: "easeInOut"
+                  }}
+                  className="w-2 h-2 rounded-full bg-linear-to-r from-[#34499e] to-[#ed1c23]"
+                />
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Progress Bar */}
+          <motion.div 
+            initial={{ opacity: 0, scaleX: 0 }}
+            animate={{ opacity: 1, scaleX: 1 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+            className="w-48 sm:w-64 h-1.5 bg-gray-200 rounded-full overflow-hidden"
+          >
+            <motion.div
+              animate={{
+                x: ['-100%', '100%']
+              }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="h-full w-1/2 bg-linear-to-r from-[#34499e] via-[#ed1c23] to-[#34499e] rounded-full"
+            />
+          </motion.div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <AnimatePresence mode="wait">
-      {show && imageLoaded && (
+      {show && (
         <motion.div
           initial={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
           exit={{ 
@@ -44,7 +264,7 @@ const SplashScreen: React.FC = () => {
           }}
           className="fixed inset-0 z-9999 flex items-center justify-center bg-white overflow-hidden"
         >
-          {/* Phase 0: Logo Morph Explosion - Pure Logo Only */}
+          {/* Phase 0: Logo Morph Explosion */}
           <AnimatePresence mode="wait">
             {phase === 0 && (
               <motion.div
@@ -98,7 +318,7 @@ const SplashScreen: React.FC = () => {
                 style={{ perspective: "1200px" }}
                 className="flex flex-row items-center gap-8 px-6 py-8 relative z-10"
               >
-                {/* Logo kiri dengan ANIMASI BERBEDA - Fade + Scale Only */}
+                {/* Logo kiri */}
                 <motion.div
                   initial={{ scale: 0.7, opacity: 0 }}
                   animate={{ 
@@ -133,9 +353,9 @@ const SplashScreen: React.FC = () => {
                   </motion.div>
                 </motion.div>
 
-                {/* Typography dengan word-by-word morph */}
+                {/* Typography */}
                 <div className="flex flex-col items-start">
-                  {/* Brand Name - Split & Merge Effect */}
+                  {/* Brand Name */}
                   <div className="flex mb-2 overflow-hidden">
                     {["K", "o", "d", "e", "K", "i", "t", "a"].map((char, i) => (
                       <motion.span
@@ -164,7 +384,7 @@ const SplashScreen: React.FC = () => {
                     ))}
                   </div>
 
-                  {/* Tagline - Elastic Bounce */}
+                  {/* Tagline */}
                   <motion.span
                     initial={{ scaleX: 0, opacity: 0, originX: 0 }}
                     animate={{ scaleX: 1, opacity: 1 }}
@@ -178,7 +398,7 @@ const SplashScreen: React.FC = () => {
                     Harga irit, tampilan elit
                   </motion.span>
 
-                  {/* Description - Wave Effect */}
+                  {/* Description */}
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -207,7 +427,7 @@ const SplashScreen: React.FC = () => {
                     ))}
                   </motion.div>
 
-                  {/* CTA Button - Elegant Minimalist Design */}
+                  {/* CTA Button */}
                   <motion.div
                     initial={{ scale: 0, opacity: 0, y: 20 }}
                     animate={{ scale: 1, opacity: 1, y: 0 }}
@@ -229,7 +449,6 @@ const SplashScreen: React.FC = () => {
                       whileTap={{ scale: 0.97 }}
                       className="relative inline-flex items-center gap-3 px-7 py-3.5 bg-[#ed1c23] text-white text-sm font-semibold rounded-xl overflow-hidden group transition-all"
                     >
-                      {/* Subtle Shine Effect */}
                       <motion.div
                         animate={{ x: ["-200%", "200%"] }}
                         transition={{ 
@@ -255,7 +474,6 @@ const SplashScreen: React.FC = () => {
                       
                       <span className="relative z-10 font-semibold">Konsultasi Gratis</span>
                       
-                      {/* Hover Glow */}
                       <motion.div
                         className="absolute inset-0 bg-linear-to-r from-[#ff3344] to-[#ed1c23] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                       />
@@ -266,7 +484,7 @@ const SplashScreen: React.FC = () => {
             )}
           </AnimatePresence>
 
-          {/* Ambient Light Orbs with Morph */}
+          {/* Ambient Light Orbs */}
           <>
             <motion.div
               initial={{ scale: 0, opacity: 0 }}
