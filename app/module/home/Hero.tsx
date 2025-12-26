@@ -28,11 +28,11 @@ const Hero: React.FC = () => {
   return (
     <section
       id="hero"
-      className="relative flex items-center min-h-[100dvh] bg-white overflow-hidden pt-32 pb-12"
+      className="relative flex items-center min-h-dvh bg-white overflow-hidden pt-32 pb-12"
     >
       {/* Clean Background */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-blue-50/30"></div>
+        <div className="absolute inset-0 bg-linear-to-br from-gray-50 via-white to-blue-50/30"></div>
       </div>
 
       <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
@@ -161,7 +161,7 @@ const Hero: React.FC = () => {
                 className="absolute -top-4 sm:-top-6 right-4 sm:right-8 w-48 sm:w-56 bg-white rounded-xl sm:rounded-2xl shadow-xl p-4 sm:p-5 border border-gray-200 z-20"
               >
                 <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-[#34499e] to-[#5b7fd8] rounded-lg sm:rounded-xl flex items-center justify-center shadow-lg">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-linear-to-br from-[#34499e] to-[#5b7fd8] rounded-lg sm:rounded-xl flex items-center justify-center shadow-lg">
                     <svg
                       className="w-6 h-6 sm:w-7 sm:h-7 text-white"
                       fill="none"
@@ -195,7 +195,7 @@ const Hero: React.FC = () => {
                       initial={{ width: 0 }}
                       animate={{ width: "100%" }}
                       transition={{ delay: 1, duration: 1, ease: "easeOut" }}
-                      className="h-full bg-gradient-to-r from-[#34499e] to-[#5b7fd8] rounded-full"
+                      className="h-full bg-linear-to-r from-[#34499e] to-[#5b7fd8] rounded-full"
                     ></motion.div>
                   </div>
                 </div>

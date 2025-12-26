@@ -229,7 +229,7 @@ const SplashScreen: React.FC = () => {
                     }}
                   >
                     <Image
-                      src="/logo.png"
+                      src="/logo-clear.png"
                       alt="KodeKita Logo"
                       width={90}
                       height={90}

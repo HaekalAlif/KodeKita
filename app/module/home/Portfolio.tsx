@@ -205,7 +205,7 @@ const Portfolio: React.FC = () => {
         className="relative py-10 bg-white overflow-hidden"
       >
         {/* Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-blue-50/30"></div>
+        <div className="absolute inset-0 bg-linear-to-br from-gray-50 via-white to-blue-50/30"></div>
 
         <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           {/* Section Header */}
@@ -261,7 +261,7 @@ const Portfolio: React.FC = () => {
                 className="group bg-white rounded-xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col h-[420px]"
               >
                 {/* Image Placeholder */}
-                <div className="relative h-48 bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
+                <div className="relative h-48 bg-linear-to-br from-gray-100 to-gray-200 overflow-hidden">
                   {/* Real Image */}
                   <img
                     src={item.image}
@@ -277,7 +277,7 @@ const Portfolio: React.FC = () => {
                   ></div>
 
                   {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                   {/* Category Badge */}
                   <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
@@ -295,14 +295,14 @@ const Portfolio: React.FC = () => {
                 </div>
 
                 {/* Content */}
-                <div className="p-5 flex flex-col flex-grow">
+                <div className="p-5 flex flex-col grow">
                   {/* Title */}
                   <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-1">
                     {item.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-sm text-gray-600 line-clamp-3 leading-relaxed flex-grow mb-4">
+                  <p className="text-sm text-gray-600 line-clamp-3 leading-relaxed grow mb-4">
                     {item.description}
                   </p>
 
@@ -467,7 +467,7 @@ const Portfolio: React.FC = () => {
                           {selectedPortfolio.features.map((feature, idx) => (
                             <li key={idx} className="flex items-start gap-2">
                               <span
-                                className={`flex-shrink-0 w-5 h-5 flex items-center justify-center ${getAccentColor(
+                                className={`shrink-0 w-5 h-5 flex items-center justify-center ${getAccentColor(
                                   selectedPortfolio.accent
                                 )} text-white rounded-full text-xs mt-0.5`}
                               >

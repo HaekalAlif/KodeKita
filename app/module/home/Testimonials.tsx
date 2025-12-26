@@ -178,9 +178,9 @@ const Testimonials: React.FC = () => {
                       }`}
                     >
                       {/* Top Bar: Name + Info + Rating */}
-                      <div className="flex items-start justify-between gap-3 mb-4 sm:mb-6 flex-shrink-0">
+                      <div className="flex items-start justify-between gap-3 mb-4 sm:mb-6 shrink-0">
                         {/* Info */}
-                        <div className="flex-grow min-w-0">
+                        <div className="grow min-w-0">
                           <h4 className="text-base sm:text-lg font-bold text-gray-900 truncate">
                             {currentTestimonial.name}
                           </h4>
@@ -195,7 +195,7 @@ const Testimonials: React.FC = () => {
                         </div>
 
                         {/* Rating */}
-                        <div className="flex items-center gap-0.5 flex-shrink-0">
+                        <div className="flex items-center gap-0.5 shrink-0">
                           {[...Array(currentTestimonial.rating)].map((_, i) => (
                             <span
                               key={i}
@@ -209,17 +209,17 @@ const Testimonials: React.FC = () => {
 
                       {/* Mobile: Proof Image (Horizontal - Same Line) */}
                       {currentTestimonial.proofImage && (
-                        <div className="md:hidden mb-4 flex-shrink-0">
+                        <div className="md:hidden mb-4 shrink-0">
                           <div className="flex items-start gap-3">
                             {/* Text Content */}
-                            <div className="flex-grow min-w-0">
+                            <div className="grow min-w-0">
                               <p className="text-sm text-gray-700 leading-relaxed line-clamp-5">
                                 &quot;{currentTestimonial.testimonial}&quot;
                               </p>
                             </div>
 
                             {/* Proof Image - Compact */}
-                            <div className="flex-shrink-0 w-20">
+                            <div className="shrink-0 w-20">
                               <div className="relative w-20 h-24 bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
                                 {/* Verified Badge */}
                                 <div className="absolute top-1 right-1 z-10">
@@ -242,7 +242,7 @@ const Testimonials: React.FC = () => {
                                 />
 
                                 {/* Fallback Placeholder */}
-                                <div className="hidden w-full h-full bg-gradient-to-br from-[#34499e]/5 to-[#ed1c23]/5 flex items-center justify-center absolute inset-0">
+                                <div className="hidden w-full h-full bg-linear-to-br from-[#34499e]/5 to-[#ed1c23]/5 flex items-center justify-center absolute inset-0">
                                   <div className="text-center p-1">
                                     <div className="w-6 h-6 bg-[#34499e] rounded-full flex items-center justify-center mx-auto mb-1">
                                       <svg
@@ -274,7 +274,7 @@ const Testimonials: React.FC = () => {
                       )}
 
                       {/* Desktop: Testimonial Text - With line clamp */}
-                      <p className="hidden md:block text-sm sm:text-base text-gray-700 leading-relaxed mb-4 sm:mb-6 flex-grow line-clamp-4">
+                      <p className="hidden md:block text-sm sm:text-base text-gray-700 leading-relaxed mb-4 sm:mb-6 grow line-clamp-4">
                         &quot;{currentTestimonial.testimonial}&quot;
                       </p>
 
@@ -286,7 +286,7 @@ const Testimonials: React.FC = () => {
                       )}
 
                       {/* Bottom Bar */}
-                      <div className="flex flex-wrap items-center gap-2 mt-auto flex-shrink-0">
+                      <div className="flex flex-wrap items-center gap-2 mt-auto shrink-0">
                         <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded">
                           <svg
                             className="w-3 h-3"
@@ -316,7 +316,7 @@ const Testimonials: React.FC = () => {
                     {/* Right: Proof Image (Desktop Only) */}
                     {currentTestimonial.proofImage && (
                       <div className="hidden md:flex items-center justify-center bg-gray-50 p-6">
-                        <div className="relative w-full max-w-[180px] aspect-[3/4] bg-white rounded-lg shadow-md overflow-hidden">
+                        <div className="relative w-full max-w-[180px] aspect-3/4 bg-white rounded-lg shadow-md overflow-hidden">
                           {/* Verified Badge on Image */}
                           <div className="absolute top-2 right-2 z-10">
                             <div className="flex items-center gap-1 px-2 py-1 bg-white/90 backdrop-blur-sm rounded-full shadow-sm">
@@ -343,7 +343,7 @@ const Testimonials: React.FC = () => {
                           />
 
                           {/* Fallback Placeholder */}
-                          <div className="hidden w-full h-full bg-gradient-to-br from-[#34499e]/5 to-[#ed1c23]/5 flex items-center justify-center absolute inset-0">
+                          <div className="hidden w-full h-full bg-linear-to-br from-[#34499e]/5 to-[#ed1c23]/5 flex items-center justify-center absolute inset-0">
                             <div className="text-center p-4">
                               <div className="w-12 h-12 bg-[#34499e] rounded-full flex items-center justify-center mx-auto mb-3">
                                 <svg

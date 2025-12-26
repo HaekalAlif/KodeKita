@@ -47,7 +47,7 @@ const Services: React.FC = () => {
     <section id="services" className="relative py-10 bg-white overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-blue-50/30"></div>
+        <div className="absolute inset-0 bg-linear-to-br from-gray-50 via-white to-blue-50/30"></div>
       </div>
 
       <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
@@ -148,7 +148,7 @@ const Services: React.FC = () => {
           transition={{ delay: 0.4, duration: 0.6 }}
           className="mt-16"
         >
-          <div className="relative bg-gradient-to-r from-[#34499e] to-[#2a3a7f] rounded-2xl p-8 sm:p-10 overflow-hidden">
+          <div className="relative bg-linear-to-r from-[#34499e] to-[#2a3a7f] rounded-2xl p-8 sm:p-10 overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
 
