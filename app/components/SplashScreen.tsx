@@ -28,7 +28,7 @@ const SplashScreen: React.FC = () => {
     };
   }, [imageLoaded]);
 
-  // Professional Loading Screen
+  // Simple Spinner Loading
   if (!imageLoaded) {
     return (
       <div className="fixed inset-0 z-9999 flex items-center justify-center bg-white overflow-hidden">
@@ -67,180 +67,66 @@ const SplashScreen: React.FC = () => {
           className="absolute w-[350px] h-[350px] rounded-full bg-[#ed1c23] blur-3xl"
         />
 
-        {/* Main Loading Animation */}
-        <div className="relative flex flex-col items-center gap-8 z-10">
-          {/* Logo Pulse Animation */}
+        {/* Spinner Only */}
+        <div className="relative w-20 h-20 sm:w-24 sm:h-24 z-10">
+          {/* Outer Ring */}
           <motion.div
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ 
-              scale: [0, 1.1, 1],
-              opacity: [0, 1, 1]
+            animate={{ rotate: 360 }}
+            transition={{
+              duration: 1.5,
+              repeat: Infinity,
+              ease: "linear"
             }}
-            transition={{ 
-              duration: 0.8,
-              ease: [0.34, 1.56, 0.64, 1]
-            }}
-            className="relative"
+            className="absolute inset-0"
           >
-            {/* Glow Ring */}
-            <motion.div
-              animate={{ 
-                scale: [1, 1.2, 1],
-                opacity: [0.3, 0.1, 0.3]
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className="absolute inset-0 -m-8 rounded-full bg-linear-to-r from-[#34499e] to-[#ed1c23] blur-xl"
-            />
-            
-            {/* Logo Container */}
-            <div className="relative w-24 h-24 sm:w-32 sm:h-32 bg-white rounded-2xl shadow-2xl p-4 sm:p-6 flex items-center justify-center">
-              <motion.div
-                animate={{ 
-                  rotate: [0, 360]
-                }}
-                transition={{
-                  duration: 20,
-                  repeat: Infinity,
-                  ease: "linear"
-                }}
-              >
-                <Image
-                  src="/logo.png"
-                  alt="KodeKita Logo"
-                  width={80}
-                  height={80}
-                  className="w-full h-full object-contain"
-                  priority
-                />
-              </motion.div>
-            </div>
+            <svg className="w-full h-full" viewBox="0 0 100 100">
+              <circle
+                cx="50"
+                cy="50"
+                r="45"
+                fill="none"
+                stroke="url(#gradient1)"
+                strokeWidth="4"
+                strokeLinecap="round"
+                strokeDasharray="70 200"
+              />
+              <defs>
+                <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#34499e" />
+                  <stop offset="100%" stopColor="#ed1c23" />
+                </linearGradient>
+              </defs>
+            </svg>
           </motion.div>
 
-          {/* Spinner Ring */}
-          <div className="relative w-20 h-20 sm:w-24 sm:h-24">
-            {/* Outer Ring */}
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                ease: "linear"
-              }}
-              className="absolute inset-0"
-            >
-              <svg className="w-full h-full" viewBox="0 0 100 100">
-                <circle
-                  cx="50"
-                  cy="50"
-                  r="45"
-                  fill="none"
-                  stroke="url(#gradient1)"
-                  strokeWidth="4"
-                  strokeLinecap="round"
-                  strokeDasharray="70 200"
-                />
-                <defs>
-                  <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#34499e" />
-                    <stop offset="100%" stopColor="#ed1c23" />
-                  </linearGradient>
-                </defs>
-              </svg>
-            </motion.div>
-
-            {/* Inner Ring */}
-            <motion.div
-              animate={{ rotate: -360 }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "linear"
-              }}
-              className="absolute inset-3"
-            >
-              <svg className="w-full h-full" viewBox="0 0 100 100">
-                <circle
-                  cx="50"
-                  cy="50"
-                  r="45"
-                  fill="none"
-                  stroke="url(#gradient2)"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                  strokeDasharray="50 150"
-                />
-                <defs>
-                  <linearGradient id="gradient2" x1="100%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stopColor="#ed1c23" />
-                    <stop offset="100%" stopColor="#34499e" />
-                  </linearGradient>
-                </defs>
-              </svg>
-            </motion.div>
-          </div>
-
-          {/* Loading Text */}
+          {/* Inner Ring */}
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="flex flex-col items-center gap-2"
+            animate={{ rotate: -360 }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+            className="absolute inset-3"
           >
-            <motion.p
-              animate={{ opacity: [0.5, 1, 0.5] }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className="text-sm sm:text-base font-semibold text-gray-700"
-            >
-              Loading KodeKita
-            </motion.p>
-            
-            {/* Dots Animation */}
-            <div className="flex gap-1.5">
-              {[0, 1, 2].map((i) => (
-                <motion.div
-                  key={i}
-                  animate={{
-                    scale: [1, 1.5, 1],
-                    opacity: [0.3, 1, 0.3]
-                  }}
-                  transition={{
-                    duration: 1,
-                    repeat: Infinity,
-                    delay: i * 0.2,
-                    ease: "easeInOut"
-                  }}
-                  className="w-2 h-2 rounded-full bg-linear-to-r from-[#34499e] to-[#ed1c23]"
-                />
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Progress Bar */}
-          <motion.div 
-            initial={{ opacity: 0, scaleX: 0 }}
-            animate={{ opacity: 1, scaleX: 1 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-            className="w-48 sm:w-64 h-1.5 bg-gray-200 rounded-full overflow-hidden"
-          >
-            <motion.div
-              animate={{
-                x: ['-100%', '100%']
-              }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className="h-full w-1/2 bg-linear-to-r from-[#34499e] via-[#ed1c23] to-[#34499e] rounded-full"
-            />
+            <svg className="w-full h-full" viewBox="0 0 100 100">
+              <circle
+                cx="50"
+                cy="50"
+                r="45"
+                fill="none"
+                stroke="url(#gradient2)"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeDasharray="50 150"
+              />
+              <defs>
+                <linearGradient id="gradient2" x1="100%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stopColor="#ed1c23" />
+                  <stop offset="100%" stopColor="#34499e" />
+                </linearGradient>
+              </defs>
+            </svg>
           </motion.div>
         </div>
       </div>
@@ -343,7 +229,7 @@ const SplashScreen: React.FC = () => {
                     }}
                   >
                     <Image
-                      src="/logo-clear.png"
+                      src="/logo.png"
                       alt="KodeKita Logo"
                       width={90}
                       height={90}
